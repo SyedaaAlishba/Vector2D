@@ -38,6 +38,37 @@ public class Program {
 //
 //        canvas.addLine(start, end);
 
+        JFrame frame = new JFrame("Vector Animation Demo");
+        Canvas canvas = new Canvas();
+
+        // Define two lines
+        Line line1 = new Line(new Vector2D(100, 100), new Vector2D(300, 300));
+        Line line2 = new Line(new Vector2D(100, 200), new Vector2D(300, 400));
+
+        canvas.addLine(line1);
+        canvas.addLine(line2);
+
+        frame.add(canvas);
+        frame.setSize(600, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        // Check if lines are parallel initially
+        Vector2D v1 = VectorSubtraction.subtract(line1.getEnd(), line1.getStart());
+        Vector2D v2 = VectorSubtraction.subtract(line2.getEnd(), line2.getStart());
+        float cross = VectorProduct.crossProduct(v1, v2);
+        System.out.println(cross == 0 ? "Lines are parallel" : "Lines are NOT parallel");
+
+        // Animate: Move line2 to the right every 50 ms
+        new Timer(50, e -> {
+            canvas.animate();
+
+            // Optional: After moving, check if parallel again and print
+            Vector2D newV2 = VectorSubtraction.subtract(line2.getEnd(), line2.getStart());
+            float newCross = VectorProduct.crossProduct(v1, newV2);
+            System.out.println(newCross == 0 ? "Lines are parallel" : "Lines are NOT parallel");
+        }).start();
+
 
     }
 

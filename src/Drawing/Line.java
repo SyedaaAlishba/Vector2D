@@ -16,5 +16,6 @@ public class Line {
     public Vector2D getEnd() {
         return end;
     }
-
+    public void setStart(Vector2D start) { this.start = start; }
+    public void setEnd(Vector2D end) { this.end = end; }
 }
