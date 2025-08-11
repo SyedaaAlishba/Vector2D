@@ -33,13 +33,7 @@ public class Program {
         frame.setSize(600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-////        canvas.addLine(new Vector2D(100, 100), new Vector2D(400, 400));
-////        canvas.addLine(new Vector2D(50, 300), new Vector2D(300, 100));
-//        Vector2D start = new Vector2D(50, 300);
-//        Vector2D direction = new Vector2D(250, -200); // vector pointing up-right
-//        Vector2D end = new Vector2D(start.getX() + direction.getX(), start.getY() + direction.getY());
-//
-//        canvas.addLine(start, end);
+
 
 
     }
